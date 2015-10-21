@@ -1,0 +1,19 @@
+{
+  "name": "touchy",
+  "version": "0.0.1",
+  "description": "easy to use touch lib",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/mulian/touchy.git",
+  "author": "Max Hoffmann",
+  "license": "MIT",
+  "dependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-coffee": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-connect": "*",
+    "grunt-coffeelint": "*"
+  }
+}
