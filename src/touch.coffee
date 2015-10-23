@@ -2,6 +2,7 @@
 TouchEvent = require './touch-event'
 TouchConditions = require './touch-conditions'
 TouchCheckConditions = require './touch-check-conditions'
+TouchTest = require './touch-test'
 
 module.exports =
 class Touch
@@ -33,6 +34,5 @@ class Touch
     return con
 
 
-
-
+console.log "test BLUBB asd test 1 2 3 4 6 8"
 window.touch = new Touch()

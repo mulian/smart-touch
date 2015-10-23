@@ -6,6 +6,7 @@ class TouchEvent
     $(document).ready @init
 
   init: =>
+    console.log "jo1 2"    
     document.body.addEventListener 'touchstart',@touch
     document.body.addEventListener 'touchmove',@touch
     document.body.addEventListener 'touchend',@touch
