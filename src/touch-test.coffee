@@ -12,7 +12,7 @@ class TouchTest
         height: '90%'
     $('body').append @notifications
     # window.console.log = @log
-  touchDown: (e) =>
+  touchDown: (e) ->
     e.preventDefault()
     if e.end
       console.log "end touches: #{e.touches.length}"
@@ -21,11 +21,6 @@ class TouchTest
 
     console.log "touches: #{e.touches.length}"
     console.log e
-    # @notifications.text "X: #{e.avg.x}, Y: #{e.avg.y}, Touches: #{e.touches.length}"
-    # if not e.end
-    #   console.log "X: #{e.avg.x}, Y: #{e.avg.y}, Touches: #{e.touches.length}"
-    # else
-    #   @notifications.text ""
 
   log: (str) =>
     @notifications.text str

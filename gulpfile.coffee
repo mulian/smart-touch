@@ -9,10 +9,7 @@ uglify = require 'gulp-uglify'
 sourcemaps = require 'gulp-sourcemaps'
 buffer = require 'vinyl-buffer'
 
-# streamify = require 'gulp-streamify'
-# to5ify = require('6to5ify');
-
-# Create the this Gulpfile
+# Create this Gulpfile
 gulp.task 'gulpfile', ->
   gulp.src './gulpfile.coffee'
     .pipe coffeelint()
@@ -68,6 +65,11 @@ gulp.task 'coffee_browserify', ->
     .pipe gulp.dest('./test/')
 
 gulp.task 'default', ['server','watch']
+
+#### Maby use later?
+
+# streamify = require 'gulp-streamify'
+# to5ify = require('6to5ify');
 
 # gulp.task 'coffee', ->
 #   gulp.src './src/*.coffee'

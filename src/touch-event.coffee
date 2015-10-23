@@ -40,8 +40,8 @@ class TouchEvent
       @lastTouchE = e
       @addDirections e
     if e.type == 'touchstart'
-        e.start=true
-        @startE = e
+      e.start=true
+      @startE = e
     else if e.type == 'touchmove'
       e.move=true
     else # 'touchend'
@@ -52,10 +52,3 @@ class TouchEvent
     @startE=null if e.end
 
     @callBack e
-
-# run = (e) ->
-#   console.log "run"
-
-# $(document).ready ->
-#   console.log touch.on(document.body).fingers.eq(2).from.left(20).call(run)
-  # console.log touch.on(document.body).onStart().fingers.eq(1).onMove().fingers.betweene(1,0).move.X(30).call(run)
