@@ -14,6 +14,7 @@ class Touch
   setCall: (@call) =>
   call: null
   trigger: (e) =>
+    e.preventDefault()   
     if @call==null
       @check.allConditionsCheck e if e.start
     else
@@ -33,6 +34,4 @@ class Touch
     con.element = element
     return con
 
-
-console.log "test BLUBB asd test 1 2 3 4 6 8"
 window.touch = new Touch()

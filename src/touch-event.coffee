@@ -6,7 +6,6 @@ class TouchEvent
     $(document).ready @init
 
   init: =>
-    console.log "jo1 2"    
     document.body.addEventListener 'touchstart',@touch
     document.body.addEventListener 'touchmove',@touch
     document.body.addEventListener 'touchend',@touch
@@ -40,16 +39,15 @@ class TouchEvent
           y: e.avg.y - @startE.avg.y
       @lastTouchE = e
       @addDirections e
-    switch e.type
-      when 'touchstart'
+    if e.type == 'touchstart'
         e.start=true
         @startE = e
-      when 'touchmove'
-        e.move=true
-      when 'touchend'
-        e.end=true
-        e.lastTouchEvent=@lastTouchE
-
+    else if e.type == 'touchmove'
+      e.move=true
+    else # 'touchend'
+      # e.end=true
+      console.log e.touches
+      e.lastTouchEvent=@lastTouchE
 
     @startE=null if e.end
 
