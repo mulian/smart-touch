@@ -14,6 +14,7 @@
     "grunt-contrib-coffee": "*",
     "grunt-contrib-watch": "*",
     "grunt-contrib-connect": "*",
-    "grunt-coffeelint": "*"
+    "grunt-coffeelint": "*",
+    "grunt-contrib-requirejs": "*"
   }
 }

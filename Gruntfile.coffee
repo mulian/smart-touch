@@ -2,6 +2,13 @@ module.exports = (grunt) ->
 
   # Project configuration.
   grunt.initConfig
+    requirejs:
+      compile:
+        options:
+          baseUrl: "lib",
+          mainConfigFile: "lib/require-config.js"
+          name: "require-config.js"
+          # out: "webroot/optimized.js"
     coffeelint:
       app: ['src/*.coffee','./Gruntfile.coffee']
       options:
@@ -13,13 +20,13 @@ module.exports = (grunt) ->
         options:
           port: 9001
           protocol: 'http'
-          base: './webroot/'
+          base: ['./webroot/','lib']
           keepalive: true
     coffee:
       app:
         expand: true
         cwd: 'src'
-        src: ['src/*.coffee','./Gruntfile.coffee']
+        src: ['*.coffee']
         dest: 'lib'
         ext: '.js'
     watch:
@@ -33,6 +40,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-connect'
   grunt.loadNpmTasks 'grunt-coffeelint'
+  grunt.loadNpmTasks 'grunt-contrib-requirejs'
 
   # Default task.
   grunt.registerTask 'default', ['coffee']
