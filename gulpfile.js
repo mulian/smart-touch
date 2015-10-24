@@ -69,4 +69,10 @@
 
   gulp.task('default', ['server', 'watch']);
 
+  gulp.task('coffee', function() {
+    return gulp.src('./src/*.coffee').pipe(sourcemaps.init({
+      loadMaps: true
+    })).pipe(coffee()).pipe(gulp.dest('./lib/'));
+  });
+
 }).call(this);

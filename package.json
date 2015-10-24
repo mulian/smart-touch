@@ -1,13 +1,13 @@
 {
-  "name": "touchy",
+  "name": "smart-touch",
   "version": "0.0.1",
   "description": "easy to use touch lib",
-  "main": "index.js",
+  "main": "./lib/touch.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "https://github.com/mulian/touchy.git",
-  "author": "Max Hoffmann",
+  "repository": "https://github.com/mulian/smart-touch.git",
+  "author": "Max Julian Hoffmann",
   "license": "MIT",
   "dependencies": {
 

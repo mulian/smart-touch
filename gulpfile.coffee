@@ -71,14 +71,14 @@ gulp.task 'default', ['server','watch']
 # streamify = require 'gulp-streamify'
 # to5ify = require('6to5ify');
 
-# gulp.task 'coffee', ->
-#   gulp.src './src/*.coffee'
-#     .pipe(sourcemaps.init({loadMaps: true}))
-#     .pipe coffeelint()
-#     .pipe coffeelint.reporter()
-#     .pipe coffee()
-#     .pipe(sourcemaps.write('./'))
-#     .pipe gulp.dest './lib/'
+gulp.task 'coffee', ->
+  gulp.src './src/*.coffee'
+    .pipe(sourcemaps.init({loadMaps: true}))
+    # .pipe coffeelint()
+    # .pipe coffeelint.reporter()
+    .pipe coffee()
+    # .pipe(sourcemaps.write('./'))
+    .pipe gulp.dest './lib/'
 
 # gulp.task 'browserify', ['coffee'], ->
 #   browserify('./lib/touch.js',{debug:true})
