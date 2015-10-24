@@ -37,8 +37,8 @@ class TouchConditions
     return @
 
   element: {} =
-    eq: true #check equal; false: not equal
-    above: true #and look above from dom tree
+    eq: true
+    above: true
     el: null
 
   #move from
