@@ -3,7 +3,7 @@
 module.exports =
 class TouchCheckConditions
   constructor: (@setCall,@conditions) ->
-     
+
   resetConditions: ->
     for con in @conditions
       con.checkBit=null
@@ -14,7 +14,7 @@ class TouchCheckConditions
   checkStartConditions: (con,e) ->
     con.checkBit=true
     #check element?
-    obj = con.conditions[e.type]
+    obj = con.conditions['touchstart']
 
     if con.checkBit and obj.fingers?
       @checkFingers(con,e)
@@ -33,8 +33,9 @@ class TouchCheckConditions
       con.checkBit=false
 
   checkFingers: (con,e) ->
-    fingers = con.conditions[e.type].fingers
+    fingers = con.conditions['touchstart'].fingers
     fingerCount = e.touches.length
+    console.log fingerCount
     if fingers.betweene?
       if not (fingerCount>=fingers.from and fingerCount<=fingers.to)
         con.checkBit=false

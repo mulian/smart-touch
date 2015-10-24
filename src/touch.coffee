@@ -15,15 +15,14 @@ class Touch
   call: null
   trigger: (e) =>
     e.preventDefault()
-    if @call==null
-      @check.allConditionsCheck e if e.start
-    else
-      @call e
+    if @call==null and e.start
+      @check.allConditionsCheck e
+
+    @call e if @call!=null
 
     if e.end
       @call = null
       @check.resetConditions()
-    # console.log e
 
   newCondition: ->
     con = new TouchConditions()
