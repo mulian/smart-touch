@@ -19,17 +19,17 @@ var call = function(e) {
 
 ## Move two fingers from right edge (like Mac OS>Notifications)
 ```javascript
-touch.on(document.body).fingers.eq(2).from.right().call(call);
+touch.on().fingers.eq(2).from.right().call(call);
 ```
 
 ## Move three fingers to Top (like Mac OS show Mission Control)
 ```javascript
-touch.on(document.body).fingers.eq(3).move.toTop().call(call);
+touch.on().fingers.eq(3).move.toTop().call(call);
 ```
 
 ## Move one or more fingers from left edge (like windows switch Apps)
 ```javascript
-touch.on(document.body).fingers.betweene(1,5).from.left().call(call);
+touch.on().fingers.betweene(1,5).from.left().call(call);
 ```
 
 # Documentation

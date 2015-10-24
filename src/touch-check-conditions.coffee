@@ -58,7 +58,7 @@ class TouchCheckConditions
 
   # Dom Element=elmt
   # elmt.eq == more or eq one finger on elmt
-  #
+  # if no element is defined, it will use every target
   # Table:
   # | elmt.eq | elmt.above | Description                               |
   # | ------- | ---------- | ----------------------------------------- |
@@ -67,6 +67,7 @@ class TouchCheckConditions
   # |  false  |   true     | Touch not on Element, but on above        |
   # |  false  |   false    | Touch anywere not on and above            |
   checkElement: (con,e) ->
+    return true if not con.element.el?
     check = false
     elmt = con.element
     elements = e.avg.elements

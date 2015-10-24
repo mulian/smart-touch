@@ -1,6 +1,6 @@
 {
   "name": "smart-touch",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "easy to use touch lib",
   "keywords": ["touch","multitouch"],
   "main": "./lib/touch.js",
