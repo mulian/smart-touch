@@ -17,7 +17,7 @@ class TouchConditions
     @_initConditions()
     @onStart() #default
     @fingers.head = @
-    # @move.head = @
+    @move.head = @
     @from.head = @
 
     return @
@@ -29,12 +29,12 @@ class TouchConditions
   onStart: ->
     @timing='touchstart'
     return @
-  onMove: ->
-    @timing='touchmove'
-    return @
-  onEnd: -> #no need?
-    @timing='touchend'
-    return @
+  # onMove: ->
+  #   @timing='touchmove'
+  #   return @
+  # onEnd: -> #no need?
+  #   @timing='touchend'
+  #   return @
 
   element: {} =
     eq: true
@@ -64,16 +64,38 @@ class TouchConditions
         bottom: distance
       return @head
 
-  #move with distance to activate
-  # move: {} =
-  #   X: (distance) ->
-  #     @head._addCondition 'move', {} =
-  #       X: distance
-  #     return @head
-  #   Y: (distance) ->
-  #     @head._addCondition 'move', {} =
-  #       Y: distance
-  #     return @head
+  # move with distance to activate
+  move: {} =
+    x: (distance) ->
+      distance ?= 50
+      @head._addCondition 'move', {} =
+        x: distance
+      return @head
+    y: (distance) ->
+      distance ?= 50
+      @head._addCondition 'move', {} =
+        y: distance
+      return @head
+    toRight: (distance) ->
+      distance ?= 50 
+      @head._addCondition 'move', {} =
+        toRight: distance
+      return @head
+    toLeft: (distance) ->
+      distance ?= 50
+      @head._addCondition 'move', {} =
+        toLeft: distance
+      return @head
+    toTop: (distance) ->
+      distance ?= 50
+      @head._addCondition 'move', {} =
+        toTop: distance
+      return @head
+    toBottom: (distance) ->
+      distance ?= 50
+      @head._addCondition 'move', {} =
+        toBottom: distance
+      return @head
 
   fingers: {} =
     betweene: (from,to) ->
