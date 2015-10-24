@@ -1,7 +1,8 @@
 {
   "name": "smart-touch",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "easy to use touch lib",
+  "keywords": ["touch","multitouch"],
   "main": "./lib/touch.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
