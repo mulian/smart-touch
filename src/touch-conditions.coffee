@@ -36,6 +36,13 @@ class TouchConditions
     @timing='touchend'
     return @
 
+  element: {} =
+    neq: false #check if element is not el
+    eq: true #check equal
+    above: true #and look above from dom tree
+    allFingers: false #false=min. 1 fingers in; true=all fingers in
+    el: null
+
   #move from
   from: {} =
     left: (distance) ->

@@ -16,6 +16,8 @@ class TouchCheckConditions
     #check element?
     obj = con.conditions['touchstart']
 
+    if con.checkBit
+      @checkElement con,e
     if con.checkBit and obj.fingers?
       @checkFingers(con,e)
     if con.checkBit and obj.from?
@@ -25,12 +27,35 @@ class TouchCheckConditions
       @setCall con.callback if con.checkBit
 
   checkFrom: (con,e) ->
-    from = con.conditions[e.type].from
-    if (from.left? and e.direction.left>from.left) or
-       (from.right? and e.direction.right>from.right) or
-       (from.top? and e.direction.top>from.top) or
-       (from.bottom? and e.direction.bottom>from.bottom)
+    check = false
+    from = con.conditions['touchstart'].from
+    console.log "#{e.avg.x},#{from.left}"
+    #check
+    # if from.left? and e.avg.diff.x>0 #right move
+      # console.log "right move"
+    if (from.left? and e.avg.diff.x>0 and e.direction.left<from.left) or
+       (from.right? and e.avg.diff.x<0 and e.direction.right<from.right)
+      check=true
+
+    con.checkBit=check
+
+
+
+  checkElement: (con,e) ->
+    element = con.element
+    elements = e.avg.elements
+    # console.log elements.compare
+    console.log "ERROR: element.eq==element.neq" if element.neq==element.eq
+    isIn = elements.inArray element.el
+    if not ((isIn and element.eq) or (not isIn and element.neq))
       con.checkBit=false
+      console.log "not eq isIn:#{isIn}"
+    if (element.allFingers and elements.length>1)
+      console.log "not allFingers"
+      con.checkBit=false
+    # console.log con
+    if not con.checkBit
+      console.log "Error: checkElement"
 
   checkFingers: (con,e) ->
     fingers = con.conditions['touchstart'].fingers

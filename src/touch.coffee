@@ -3,6 +3,7 @@ TouchEvent = require './touch-event'
 TouchConditions = require './touch-conditions'
 TouchCheckConditions = require './touch-check-conditions'
 TouchTest = require './touch-test'
+require './fortify-array'
 
 module.exports =
 class Touch
@@ -28,9 +29,12 @@ class Touch
     con = new TouchConditions()
     @conditions.push con
     return con
-  on: (element) ->
+  on: (element,options) ->
     con = @newCondition()
-    con.element = element
+    if options?
+      for name, val of options
+        con.element[name] = val
+    con.element.el = element
     return con
 
 window.touch = new Touch()
