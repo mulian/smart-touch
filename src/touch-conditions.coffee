@@ -37,27 +37,29 @@ class TouchConditions
     return @
 
   element: {} =
-    neq: false #check if element is not el
-    eq: true #check equal
+    eq: true #check equal; false: not equal
     above: true #and look above from dom tree
-    allFingers: false #false=min. 1 fingers in; true=all fingers in
     el: null
 
   #move from
   from: {} =
     left: (distance) ->
+      distance ?= 50
       @head._addCondition 'from', {} =
         left: distance
       return @head
     right: (distance) ->
+      distance ?= 50
       @head._addCondition 'from', {} =
         right: distance
       return @head
     top: (distance) ->
+      distance ?= 50
       @head._addCondition 'from', {} =
         top: distance
       return @head
     bottom: (distance) ->
+      distance ?= 50
       @head._addCondition 'from', {} =
         bottom: distance
       return @head

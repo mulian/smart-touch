@@ -7,21 +7,26 @@ class TouchTest
     # touch.on(document.body,{allFingers:true}).fingers.betweene(1,3).call(@touchDown)
 
     # window.console.log = @log
-    left = $ '<div />',
-      id: 'left'
+    red = $ '<span />',
+      id: 'red'
       css:
+        display: 'inline-block'
         width: '50%'
         height: '150%'
         background: 'red'
-    right = $ '<div />',
-      id: 'right'
+    blue = $ '<span />',
+      id: 'blue'
       css:
+        display: 'inline-block'
         width: '50%'
         height: '100%'
         background: 'blue'
-    $('body').append right
-    $('body').append left
-    touch.on(left[0]).fingers.betweene(1,3).from.left(50).call(@touchDown2)
+    $('body').append blue
+    $('body').append red
+    # touch.on(red[0],{eq:true,above:true}).fingers.betweene(1,3).call(@touchDown2) #1
+    touch.on(red[0],{eq:true,above:false}).fingers.betweene(1,3).call(@touchDown2) #2
+    # touch.on(red[0],{eq:false,above:true}).fingers.betweene(1,3).call(@touchDown2) #3
+    # touch.on(red[0],{eq:false,above:false}).fingers.betweene(1,3).call(@touchDown2) #4
     # left.scrollTop(1000)
 
   touchDown: (e) ->
@@ -30,7 +35,8 @@ class TouchTest
     console.log e
 
   touchDown2: (e) ->
-    console.log "TouchDown 2"
+    console.log "TouchDown!"
+    # console.log e
 
   log: (str) =>
     @notifications.text str

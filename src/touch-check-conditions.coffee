@@ -17,50 +17,60 @@ class TouchCheckConditions
     obj = con.conditions['touchstart']
 
     if con.checkBit
-      @checkElement con,e
+      con.checkBit=@checkElement con,e
     if con.checkBit and obj.fingers?
       @checkFingers(con,e)
     if con.checkBit and obj.from?
-      @checkFrom(con,e)
+      con.checkBit=@checkFrom(con,e)
 
     if con.checkBit
       @setCall con.callback if con.checkBit
 
   checkFrom: (con,e) ->
-    check = false
     from = con.conditions['touchstart'].from
-    console.log "#{e.avg.x},#{from.left}"
-    #check
-    # if from.left? and e.avg.diff.x>0 #right move
-      # console.log "right move"
     if (from.left? and e.avg.diff.x>0 and e.direction.left<from.left) or
-       (from.right? and e.avg.diff.x<0 and e.direction.right<from.right)
-      check=true
+       (from.right? and e.avg.diff.x<0 and e.direction.right<from.right) or
+       (from.top? and e.avg.diff.y>0 and e.direction.top<from.top) or
+       (from.bottom? and e.avg.diff.y<0 and e.direction.bottom<from.bottom)
+      return true
+    return false
 
-    con.checkBit=check
-
-
-
+  # Dom Element=elmt
+  # elmt.eq == more or eq one finger on elmt
+  #
+  # Table:
+  # | elmt.eq | elmt.above | Description                               |
+  # | ------- | ---------- | ----------------------------------------- |
+  # |  true   |   true     | Touch on Element or above (on dom branch) |
+  # |  true   |   false    | Touch only on element                     |
+  # |  false  |   true     | Touch not on Element, but on above        |
+  # |  false  |   false    | Touch anywere not on and above            |
   checkElement: (con,e) ->
-    element = con.element
+    check = false
+    elmt = con.element
     elements = e.avg.elements
-    # console.log elements.compare
-    console.log "ERROR: element.eq==element.neq" if element.neq==element.eq
-    isIn = elements.inArray element.el
-    if not ((isIn and element.eq) or (not isIn and element.neq))
-      con.checkBit=false
-      console.log "not eq isIn:#{isIn}"
-    if (element.allFingers and elements.length>1)
-      console.log "not allFingers"
-      con.checkBit=false
-    # console.log con
-    if not con.checkBit
-      console.log "Error: checkElement"
+    #check if elmt is in
+    isIn = elements.inArray elmt.el
+    if elmt.eq==isIn == true
+      return true
+    isAbove = false
+    if not isIn #check all elmts above (>) the con.elmt
+      tmpElmt = elmt.el
+      while (not tmpElmt.isEqualNode(document.body))
+        tmpElmt = tmpElmt.parentNode
+        if elements.inArray tmpElmt
+          isAbove = true
+          break;
+    if elmt.above==isAbove==true
+      return true
+    if elmt.above==isAbove==isIn==elmt.eq==false
+      return true
+    return false
 
   checkFingers: (con,e) ->
     fingers = con.conditions['touchstart'].fingers
     fingerCount = e.touches.length
-    console.log fingerCount
+    # console.log fingerCount
     if fingers.betweene?
       if not (fingerCount>=fingers.from and fingerCount<=fingers.to)
         con.checkBit=false
