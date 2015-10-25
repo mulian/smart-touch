@@ -24,7 +24,7 @@ Default is `{eq:true,above:true}`.
 |  true   |   true     | Touch on Element or above (on dom branch). |
 |  true   |   false    | Touch only on element.                     |
 |  false  |   true     | Touch not on Element, but on above.        |
-|  false  |   false    | Touch anywere not on and above.            |
+|  false  |   false    | Touch anywere not on and not on above.     |
 
 ### .fingers (is necessary)
 It defines the Number of Finger to Trigger the call function.
