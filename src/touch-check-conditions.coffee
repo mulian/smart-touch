@@ -1,4 +1,4 @@
-# Touch
+# Check the conditions.
 
 module.exports =
 class TouchCheckConditions
@@ -23,6 +23,8 @@ class TouchCheckConditions
 
     if con.checkBit #Every condition got an element
       con.checkBit=@checkElement con,e
+    if con.checkBit and obj.pinch?
+      con.checkBit=@checkPinch con,e
     if con.checkBit and obj.move?
       con.checkBit=@checkMove con,e
     if con.checkBit and obj.fingers?
@@ -32,6 +34,15 @@ class TouchCheckConditions
 
     if con.checkBit
       @setCall con.callback if con.checkBit
+
+  checkPinch: (con,e) ->
+    pinch = con.conditions['touchstart'].pinch
+    if e.avg.diff.pitch? and
+       ((pinch.in? and e.avg.diff.pitch<0) or
+        (pinch.out? and e.avg.diff.pitch>0))
+      return true
+    return false
+
 
   # Check side move 'from' left...
   # TODO: move from element side

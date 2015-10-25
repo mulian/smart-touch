@@ -1,4 +1,6 @@
-# Touch
+# Fortify Touch event Object.
+# And add Listener to Dom.
+
 module.exports =
 class TouchEvent
   constructor: (@callBack) ->
@@ -65,10 +67,11 @@ class TouchEvent
     if e.touches.length>0
       elements = []
       elements.compare = (a,b) ->
-        return true if a.isEqualNode b
+        return true if a? and a.isEqualNode b
         return false
       x = 0
       y = 0
+
       for touch in e.touches
         x+=touch.pageX
         y+=touch.pageY
@@ -77,16 +80,54 @@ class TouchEvent
         x : x/e.touches.length
         y : y/e.touches.length
         elements : elements
+        pitch : @_calcPitch(e)
 
       @_addAverageDiff e
       #directions depence on .avg
       @_addDirections e
 
 
+  #are there any Graph optimizations?
+  # TODO: remove getPoints for runtime?
+  # Algorithm:
+  # if there is only one point return 0
+  # for any point
+  #    create sublist without current point
+  #    for sublist
+  #       get pitch between point from first and secound for loop
+  #       if pitch is greater then save
+  # return greatest pitch
+  _calcPitch: (e) ->
+    return 0 if e.touches.length==1
+    getPoint = (touch) ->
+      return {} =
+        x: touch.pageX
+        y: touch.pageY
+    getPoints = (touches) ->
+      array = []
+      for touch in e.touches
+        getPoint touch
+    getPitchBetween = (p1,p2) ->
+      return Math.sqrt(Math.pow(p2.x-p1.x,2)+Math.pow(p2.y-p1.y,2))
+
+    points = getPoints e.touches
+    maxPitch = 0
+    for p1,k in points
+      pointsWithoutP1 = points.slice(0) #clone all points
+      pointsWithoutP1.splice k,1 #remove current element from pointsWithoutP1
+      for p2 in pointsWithoutP1
+        pitch = getPitchBetween p1,p2
+        if pitch>maxPitch
+          maxPitch=pitch
+    return maxPitch
+
   _addAverageDiff: (e) ->
     e.avg.diff = {} =
       x: e.avg.x-@_firstEvent.avg.x
       y: e.avg.y-@_firstEvent.avg.y
+      pitch: e.avg.pitch-@_firstEvent.avg.pitch if @_firstEvent.avg.pitch>0
+    # console.log @_firstEvent.avg.pitch
+    # console.log e.avg.pitch
 
   #add directions to
   _addDirections: (e) ->

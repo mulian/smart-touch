@@ -1,3 +1,5 @@
+# Only for Test cases!
+
 $ = require 'jquery'
 
 module.exports =
@@ -34,7 +36,8 @@ class TouchTest
 
 
     # touch.on(document.body).fingers.betweene(1,5).from.bottom().call(@touchDown2)
-    touch.on().fingers.betweene(1,3).call(@touchDown2)
+    # touch.on().fingers.betweene(1,3).call(@touchDown2)
+    touch.on().fingers.eq(4).pinch.in().call(@touchDown2)
 
   touchDown: (e) ->
     # console.log "touches: #{e.touches.length}"

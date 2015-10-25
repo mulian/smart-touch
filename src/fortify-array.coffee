@@ -1,3 +1,5 @@
+# Foritfy Array for touch-event and touch-check-conditions.
+
 Array::inArray = (item) ->
   if @compare?
     for aItem in @

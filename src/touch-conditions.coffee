@@ -1,5 +1,9 @@
 # TouchConditions
+# With this Class you create the Conditions
 
+# TODO: aktivate event foritfy (touch-event) packages on use conditions.
+#       Then there are less calculations for touch-event and better runtime.
+# TODO: remove timing? (touchstart,touchmove,touchend)
 
 module.exports =
 class TouchConditions
@@ -19,6 +23,7 @@ class TouchConditions
     @fingers.head = @
     @move.head = @
     @from.head = @
+    @pinch.head = @
 
     return @
 
@@ -40,6 +45,18 @@ class TouchConditions
     eq: true
     above: true
     el: null
+
+  pinch: {} =
+    in: (distance) ->
+      distance ?= 50
+      @head._addCondition 'pinch', {} =
+        in: distance
+      return @head
+    out: (distance) ->
+      distance ?= 50
+      @head._addCondition 'pinch', {} =
+        out: distance
+      return @head
 
   #move from
   from: {} =
@@ -77,7 +94,7 @@ class TouchConditions
         y: distance
       return @head
     toRight: (distance) ->
-      distance ?= 50 
+      distance ?= 50
       @head._addCondition 'move', {} =
         toRight: distance
       return @head

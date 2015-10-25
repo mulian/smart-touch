@@ -1,8 +1,9 @@
-# Touch
+# The Main Smart-Touch Class
+
 TouchEvent = require './touch-event'
 TouchConditions = require './touch-conditions'
 TouchCheckConditions = require './touch-check-conditions'
-TouchTest = require './touch-test'
+# TouchTest = require './touch-test'
 require './fortify-array'
 
 module.exports =
