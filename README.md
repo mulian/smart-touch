@@ -82,78 +82,74 @@ The distance parameter defines the minimal action distance to Trigger the call f
 * `.x(distance)`
 Horizontal move
 
-* .y(distance)
+* `.y(distance)`
 Vertical move
 
-* .toRight(distance)
+* `.toRight(distance)`
 Move from left to Right.
 
-* .toLeft(distance)
+* `.toLeft(distance)`
 Move from right to Left.
 
-* .toTop(distance)
+* `.toTop(distance)`
 Move from bottom to Top.
 
-* .toBottom(distance)
+* `.toBottom(distance)`
 Move from top to Bottom.
 
-### from
-If you use `from`, the call function will be triggered on edges moves like following.
+### .from
+Add edge trigger conditions.
 
 The distance defines the minimal distance to trigger from edge. Every distance parameter is default 50 (if undefined).
 
-.from
-* .left(distance)
-* .right(distance)
-* .top(distance)
-* .bottom(distance)
+`.from`
+* `.left(distance)`
+* `.right(distance)`
+* `.top(distance)`
+* `.bottom(distance)`
 
-### pinch
-Pinch is usefull for e.x. pinch to zoome.
+### .pinch
+For example: pinch to zoome.
 
-The distance defines the minimal distance width betweene all fingers to call the Call function. Every distance parameter is default 50 (if undefined).
+The distance defines the minimal distance width betweene all fingers to call the Trigger function. Every distance parameter is default 50 (if undefined).
 
-.pinch
-* .in(distance)
-* .out(distance)
+`.pinch`
+* `.in(distance)`
+* `.out(distance)`
 
-### call (is necessary)
+### .call (is necessary)
 The callback function is triggered when all the conditions accepted.
 
-.call(callback_function)
+`.call(callback_function)`
 
 The callback_function is passed the expanded event object.
 
-## Expanded event Object
+## Expanded touch event
 This object contains all normal [touch-event](https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent) information. Plus some calculated smart-touch informations like:
 
-* avg {Object}
+* `avg `{Object}
 Contains the calculated fingers-point average.
-  * x {Number}
-The avg. of event.PageX.
-  * y {Number}
-The avg. of event.pageY.
-  * elements {DOMElement}
+  * `x` {Number}
+The avg. of `event.PageX.`
+  * `y` {Number}
+The avg. of `event.pageY`.
+  * `elements` {DOMElement}
 An array of all the DOM element that will be affected.
-  * pitch {Number}
+  * `pitch` {Number}
 The max. distance betweene all Fingers.
 
 Then there are also the difference to the first fingers touch.
-  * diff {Object}
-    * x {Number}
-    * y {Number}
-    * pitch {Number}
+  * `diff` {Object}
+    * `x` {Number}
+    * `y` {Number}
+    * `pitch` {Number}
 
 And smart-touch adds further an object with the directions (on body based). Like CSS definition.
-* direction
-  * left
-  * right
-  * top
-  * bottom
-
-
-
-**coming soon**
+* `direction`
+  * `left`
+  * `right`
+  * `top`
+  * `bottom`
 
 ## Inline Docu (Docco)
 [Inline Docu](http://rawgit.com/mulian/smart-touch/master/docs/touch.html)
