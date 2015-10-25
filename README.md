@@ -38,3 +38,6 @@ touch.on().fingers.eq(4).pinch.in().call(call);
 
 # Documentation
 **coming soon**
+
+## Inline Docu (Docco)
+[Inline Docu](http://rawgit.com/mulian/smart-touch/master/docs/touch.html)
