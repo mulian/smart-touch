@@ -1,6 +1,8 @@
 # Smart Touch
 Smart Touch is an easy to use Javascript- Touch- Libary.
 
+[Changelog](https://github.com/mulian/smart-touch/blob/master/CHANGELOG.md)
+
 Note: You could use it without jQuery.
 
 # Install
