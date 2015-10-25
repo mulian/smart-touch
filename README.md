@@ -6,8 +6,8 @@ Smart Touch is an easy to use Javascript- Touch- Libary.
 Note: You could use it without jQuery.
 
 # Install
-`cd <your_project_root_folder>`
-`npm install smart-touch --save`
+* `cd <your_project_root_folder>`
+* `npm install smart-touch --save`
 
 # Examples
 
