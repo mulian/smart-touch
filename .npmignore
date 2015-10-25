@@ -3,3 +3,6 @@ src
 test
 docs
 .git
+gulpfile.coffee
+gulpfile.js
+.gitignore
