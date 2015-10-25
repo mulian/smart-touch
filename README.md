@@ -41,9 +41,9 @@ touch.on().fingers.eq(4).pinch.in().call(call);
 # Documentation
 
 ## Create a condition
-You could create more than one condition.
+(You could create more than one condition.)
 
-### on Function (is nacessary + always the first function)
+### .on() Function (is nacessary + always the first function)
 ```javascript
 touch.on(DOMElement,ObtionsObject). ...
 ```
@@ -56,28 +56,30 @@ If there is no parameter, it will be trigger on every DOM Element.
 There are two Boolean Values.
 Default is `{eq:true,above:true}`.
 
-|   eq    |   above    | Description                               |
-| ------- | ---------- | ----------------------------------------- |
-|  true   |   true     | Touch on Element or above (on dom branch) |
-|  true   |   false    | Touch only on element                     |
-|  false  |   true     | Touch not on Element, but on above        |
-|  false  |   false    | Touch anywere not on and above            |
+|   eq    |   above    | Description                                |
+| ------- | ---------- | ------------------------------------------ |
+|  true   |   true     | Touch on Element or above (on dom branch). |
+|  true   |   false    | Touch only on element.                     |
+|  false  |   true     | Touch not on Element, but on above.        |
+|  false  |   false    | Touch anywere not on and above.            |
 
-### fingers (is necessary)
+### .fingers (is necessary)
 It defines the Number of Finger to Trigger the call function.
 
-.fingers
-* .eq(p)
+`.fingers`
+* `.eq(p)`
 Fingers equals (#fingers==p).
 
-* .betweene(p1,p2)
+* `.betweene(p1,p2)`
 Fingers betweene (p1<=#finger<=p2).
 
 ### move
-It defines the minimal action distance to Trigger the call function. Every distance parameter is default 50 (if undefined).
+Move on Page.
 
-.move
-* .x(distance)
+The distance parameter defines the minimal action distance to Trigger the call function. Every distance parameter is default 50 (if undefined).
+
+`.move`
+* `.x(distance)`
 Horizontal move
 
 * .y(distance)
@@ -96,7 +98,7 @@ Move from bottom to Top.
 Move from top to Bottom.
 
 ### from
-If you use from, the call function will be triggert on edges moves like following.
+If you use `from`, the call function will be triggered on edges moves like following.
 
 The distance defines the minimal distance to trigger from edge. Every distance parameter is default 50 (if undefined).
 
