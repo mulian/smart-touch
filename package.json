@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "easy to use touch lib",
   "keywords": ["touch","multitouch"],
-  "main": "./lib/boundle.js",
+  "main": "./dist/boundle.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
