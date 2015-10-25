@@ -14,10 +14,11 @@ Note: You could use it without jQuery.
 ## Use this code before every example
 Add to your HTML:
 ```html
-<!-- will add touch globaly to window.touch -->
+<!-- only for test cases! -->
 <script src='https://rawgit.com/mulian/smart-touch/master/dist/boundle.js' language='javascript' type='text/javascript' />
 ```
 ```javascript
+// will add touch globaly to window.touch
 // require('smart-touch'); //if you use browserify
 
 var call = function(e) {
