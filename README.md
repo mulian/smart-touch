@@ -41,4 +41,4 @@ touch.on().fingers.eq(4).pinch.in().call(call);
 
 # Documentation
 
-[HERE](https://github.com/mulian/smart-touch/master/DOCUMENTATION.md)
+[HERE](https://github.com/mulian/smart-touch/blob/master/DOCUMENTATION.md)
