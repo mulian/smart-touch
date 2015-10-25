@@ -88,7 +88,7 @@ class TouchEvent
 
 
   #are there any Graph optimizations?
-  # TODO: remove getPoints for runtime?
+  # TODO: remove getPoints for better runtime?
   # Algorithm:
   # if there is only one point return 0
   # for any point
