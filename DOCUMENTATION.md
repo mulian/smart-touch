@@ -90,7 +90,7 @@ The callback_function is passed the expanded event object.
 ## Expanded touch event
 This object contains all normal [touch-event](https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent) information. Plus some calculated smart-touch informations like:
 
-* `avg `{Object}
+* `event.avg `{Object}
 Contains the calculated fingers-point average.
   * `x` {Number}
 The avg. of `event.PageX.`
@@ -102,13 +102,13 @@ An array of all the DOM element that will be affected.
 The max. distance betweene all Fingers.
 
 Then there are also the difference to the first fingers touch.
-  * `diff` {Object}
+  * `event.avg.diff` {Object}
     * `x` {Number}
     * `y` {Number}
     * `pitch` {Number}
 
 And smart-touch adds further an object with the directions (on body based). Like CSS definition.
-* `direction`
+* `event.direction`
   * `left`
   * `right`
   * `top`
