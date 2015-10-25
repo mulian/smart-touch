@@ -1,3 +1,6 @@
+# 0.1.1
+* Add Documentation
+
 # 0.1.0
 * Add Docco Documentation
 * Add pinch Condition

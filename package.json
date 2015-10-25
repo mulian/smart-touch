@@ -1,6 +1,6 @@
 {
   "name": "smart-touch",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "easy to use touch lib",
   "keywords": ["touch","multitouch"],
   "main": "./lib/boundle.js",
