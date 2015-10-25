@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>fortify-array.coffee</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="fortify-array.html">
+                  fortify-array.coffee
+                </a>
+              
+                
+                <a class="source" href="touch-check-conditions.html">
+                  touch-check-conditions.coffee
+                </a>
+              
+                
+                <a class="source" href="touch-conditions.html">
+                  touch-conditions.coffee
+                </a>
+              
+                
+                <a class="source" href="touch-event.html">
+                  touch-event.coffee
+                </a>
+              
+                
+                <a class="source" href="touch-test.html">
+                  touch-test.coffee
+                </a>
+              
+                
+                <a class="source" href="touch.html">
+                  touch.coffee
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>fortify-array.coffee</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <p>Foritfy Array for touch-event and touch-check-conditions.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-attribute">Array</span>::inArray = <span class="hljs-function"><span class="hljs-params">(item)</span> -&gt;</span>
+  <span class="hljs-keyword">if</span> <span class="hljs-property">@compare</span>?
+    <span class="hljs-keyword">for</span> aItem <span class="hljs-keyword">in</span> @
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span> <span class="hljs-keyword">if</span> <span class="hljs-property">@compare</span> item,aItem
+  <span class="hljs-keyword">else</span> <span class="hljs-built_in">console</span>.log <span class="hljs-string">"ERROR: There is no Array.compare(a,b) Function."</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+
+<span class="hljs-attribute">Array</span>::pushIfNotExist = <span class="hljs-function"><span class="hljs-params">(item)</span> -&gt;</span>
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> <span class="hljs-property">@inArray</span> item
+    <span class="hljs-keyword">return</span> <span class="hljs-property">@push</span> item
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span></pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

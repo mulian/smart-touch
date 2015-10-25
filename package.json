@@ -1,9 +1,9 @@
 {
   "name": "smart-touch",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "easy to use touch lib",
   "keywords": ["touch","multitouch"],
-  "main": "./lib/touch.js",
+  "main": "./lib/boundle.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,6 +14,7 @@
 
   },
   "devDependencies": {
+    "docco": "0.7.0",
     "6to5ify": "^4.1.1",
     "browserify": "^11.2.0",
     "coffeeify": "^1.1.0",
@@ -29,5 +30,8 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "jquery": "^2.1.4"
+  },
+  "scripts" : {
+    "docco": "docco ./src/*.coffee"
   }
 }
