@@ -1,5 +1,5 @@
 # 0.1.3
-* Bugfix every preventDefault()
+* Bugfix: on every touch -> preventDefault()
 
 # 0.1.2
 * Change Readme file
