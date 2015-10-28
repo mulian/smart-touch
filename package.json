@@ -1,9 +1,9 @@
 {
   "name": "smart-touch",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "easy to use touch lib",
   "keywords": ["touch","multitouch"],
-  "main": "./dist/boundle.js",
+  "main": "./lib/touch.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

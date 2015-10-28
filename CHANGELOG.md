@@ -1,3 +1,6 @@
+# 0.1.3
+* Bugfix every preventDefault()
+
 # 0.1.2
 * Change Readme file
 

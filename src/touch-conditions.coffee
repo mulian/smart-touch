@@ -31,9 +31,9 @@ class TouchConditions
     return @
 
 
-  # onStart: ->
-  #   @timing='touchstart'
-  #   return @
+  onStart: ->
+    @timing='touchstart'
+    return @
   # onMove: ->
   #   @timing='touchmove'
   #   return @

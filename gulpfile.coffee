@@ -62,7 +62,7 @@ gulp.task 'coffee_browserify', ->
         sourceMap: true
     .pipe sourcemaps.write("./")  # /* optional second param here */
     .pipe connect.reload()
-    .pipe gulp.dest('./test/')
+    .pipe gulp.dest('./dist/')
 
 gulp.task 'default', ['server','watch']
 

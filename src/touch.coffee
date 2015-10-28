@@ -16,7 +16,6 @@ class Touch
   setCall: (@call) =>
   call: null
   trigger: (e) =>
-    e.preventDefault()
     if @call==null and e.start
       @check.allConditionsCheck e
 

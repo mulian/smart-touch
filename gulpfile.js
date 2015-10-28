@@ -64,7 +64,7 @@
       options: {
         sourceMap: true
       }
-    })).pipe(sourcemaps.write("./")).pipe(connect.reload()).pipe(gulp.dest('./test/'));
+    })).pipe(sourcemaps.write("./")).pipe(connect.reload()).pipe(gulp.dest('./dist/'));
   });
 
   gulp.task('default', ['server', 'watch']);
